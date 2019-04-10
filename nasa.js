@@ -1,11 +1,11 @@
 // clears all fields in order to be populated again
 function clear(){
-  document.querySelector('#mainImg').src = "";
+  document.querySelector('#mainImg').remove();
   document.querySelector('#title').innerText = "";
   document.querySelector('#date').innerText = "";
   document.querySelector('#explanation').innerText = "";
   document.querySelector('#copyright').innerText = "";
-  document.querySelector('#mainVid').src = "";
+  document.querySelector('#mainVid').remove();
 }
 
 // gets APOD and relevant info
@@ -15,10 +15,18 @@ function getAPOD(date){
   .then(function(json){
     console.log(json);
     if(json.media_type=="image"){
+      var newImg = document.createElement("img");
+      newImg.id = "mainImg";
+      document.querySelector("#hero").appendChild(newImg);
+      newImg.classList.add("mainImage")
       document.querySelector('#mainImg').src = json.url;
     }
     else if (json.media_type=="video") {
-      document.querySelector('#mainVid').src = json.url; //possibly may need to create a video tag or iframe tag if this doesnt work
+      var newImg = document.createElement("iframe");
+      newIframe.id = "mainVid";
+      document.querySelector("#hero").appendChild(newIframe);
+      newIframe.classList.add("mainImage")
+      document.querySelector('#mainVid').src = json.url;
     }
     document.querySelector('#title').innerText = json.title;
     document.querySelector('#date').innerText = json.date;
