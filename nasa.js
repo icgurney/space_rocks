@@ -1,5 +1,3 @@
-document.querySelector()
-
 // clears all fields in order to be populated again
 function clear(){
   document.querySelector('#mainImg').src = "";
@@ -11,7 +9,7 @@ function clear(){
 }
 
 // gets APOD and relevant info
-function getAPOD(){
+function getAPOD(date){
   fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6&date=' + date)
   .then(response => response.json())
   .then(function(json){
@@ -19,7 +17,7 @@ function getAPOD(){
       document.querySelector('#mainImg').src = json.url;
     }
     else if (json.media_type=="video") {
-      document.querySelector('#mainImg').dynsrc = json.url;
+      document.querySelector('#mainImg').dynsrc = json.url; //possibly may need to create a video tag or iframe tag if this doesnt work
     }
     document.querySelector('#title').innerText = json.title;
     document.querySelector('#date').innerText = json.date;
@@ -29,3 +27,29 @@ function getAPOD(){
     }
   })
 }
+
+function todayAPOD(){
+  fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6')
+  .then(response => response.json())
+  .then(function(json){
+    document.querySelector('#date').max = json.date;
+    document.querySelector('#date').min = 1995-06-20;
+  }
+}
+
+document.querySelector('#submit').addEventListener("click", function(){
+  reset();
+  getAPOD(document.querySelector("#pickDate").value);
+})
+
+document.querySelector('#prevBtn').addEventListener("click", function(){
+  reset();
+  getAPOD(document.querySelector("#pickDate").value.stepDown);
+})
+
+document.querySelector('#nextBtn').addEventListener("click", function(){
+  reset();
+  getAPOD(document.querySelector("#pickDate").value.stepUp);
+})
+
+todayAPOD();
