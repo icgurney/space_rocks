@@ -35,7 +35,7 @@ function todayAPOD(){
   .then(function(json){
     document.querySelector('#date').max = json.date;
     document.querySelector('#date').min = 1995-06-20;
-  }
+  )}
 }
 
 document.querySelector('#submit').addEventListener("click", function(){
