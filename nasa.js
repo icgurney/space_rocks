@@ -61,13 +61,13 @@ document.querySelector('#submit').addEventListener("click", function(){
 document.querySelector('#prevBtn').addEventListener("click", function(){
   clear();
   // need to create if statement to check for minimum date
-  getAPOD(document.querySelector("#pickDate").value.stepDown(1));
+  getAPOD(document.querySelector("#pickDate").stepDown(1));
 })
 
 document.querySelector('#nextBtn').addEventListener("click", function(){
   clear();
   // need to create if statement to check for maximum date
-  getAPOD(document.querySelector("#pickDate").value.stepUp(1));
+  getAPOD(document.querySelector("#pickDate").stepUp(1));
 })
 
 todayAPOD();
