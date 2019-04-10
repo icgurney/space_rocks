@@ -39,18 +39,18 @@ function todayAPOD(){
 }
 
 document.querySelector('#submit').addEventListener("click", function(){
-  reset();
+  clear();
   getAPOD(document.querySelector("#pickDate").value);
 })
 
 document.querySelector('#prevBtn').addEventListener("click", function(){
-  reset();
+  clear();
   // need to create if statement to check for minimum date
   getAPOD(document.querySelector("#pickDate").value.stepDown);
 })
 
 document.querySelector('#nextBtn').addEventListener("click", function(){
-  reset();
+  clear();
   // need to create if statement to check for maximum date
   getAPOD(document.querySelector("#pickDate").value.stepUp);
 })
