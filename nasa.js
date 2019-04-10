@@ -22,7 +22,7 @@ function getAPOD(date){
       document.querySelector('#mainImg').src = json.url;
     }
     else if (json.media_type=="video") {
-      var newImg = document.createElement("iframe");
+      var newIframe = document.createElement("iframe");
       newIframe.id = "mainVid";
       document.querySelector("#hero").appendChild(newIframe);
       newIframe.classList.add("mainImage")
