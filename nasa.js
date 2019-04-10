@@ -17,7 +17,6 @@ function getAPOD(date){
   fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6&date=' + date)
   .then(response => response.json())
   .then(function(json){
-    console.log(json);
     if(json.media_type=="image"){
       var newImg = document.createElement("img");
       newImg.id = "mainImg";
@@ -61,13 +60,15 @@ document.querySelector('#submit').addEventListener("click", function(){
 document.querySelector('#prevBtn').addEventListener("click", function(){
   clear();
   // need to create if statement to check for minimum date
-  getAPOD(document.querySelector("#pickDate").stepDown(1));
+  document.querySelector("#pickDate").stepDown()
+  getAPOD(document.querySelector("#pickDate").value);
 })
 
 document.querySelector('#nextBtn').addEventListener("click", function(){
   clear();
   // need to create if statement to check for maximum date
-  getAPOD(document.querySelector("#pickDate").stepUp(1));
+  document.querySelector("#pickDate").stepUp()
+  getAPOD(document.querySelector("#pickDate").value);
 })
 
 todayAPOD();
