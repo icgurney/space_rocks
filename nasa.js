@@ -1,11 +1,15 @@
 // clears all fields in order to be populated again
 function clear(){
-  document.querySelector('#mainImg').remove();
+  if (document.querySelector('#mainImg')) {
+      document.querySelector('#mainImg').remove();
+  }
   document.querySelector('#title').innerText = "";
   document.querySelector('#date').innerText = "";
   document.querySelector('#explanation').innerText = "";
   document.querySelector('#copyright').innerText = "";
-  document.querySelector('#mainVid').remove();
+  if (document.querySelector('#mainVid')) {
+    document.querySelector('#mainVid').remove();
+  }
 }
 
 // gets APOD and relevant info
