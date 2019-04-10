@@ -28,6 +28,7 @@ function getAPOD(date){
   })
 }
 
+// sets min and max date values for today on first run
 function todayAPOD(){
   fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6')
   .then(response => response.json())
@@ -44,11 +45,13 @@ document.querySelector('#submit').addEventListener("click", function(){
 
 document.querySelector('#prevBtn').addEventListener("click", function(){
   reset();
+  // need to create if statement to check for minimum date
   getAPOD(document.querySelector("#pickDate").value.stepDown);
 })
 
 document.querySelector('#nextBtn').addEventListener("click", function(){
   reset();
+  // need to create if statement to check for maximum date
   getAPOD(document.querySelector("#pickDate").value.stepUp);
 })
 
