@@ -4,6 +4,55 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Space Rocks</title>
+<style media="screen">
+  body{
+    background: linear-gradient(0deg, #4b6cb7 0%, #182848 100%);
+    color: white;
+    margin: 5% 2% 5% 2%;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .mainImage{
+    width: auto;
+    height: auto;
+    align-self: auto;
+  }
+
+  #astro {
+    width: 200px;
+
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+  }
+
+  .imageDiv {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+  }
+
+  .content {
+    margin-left: 10%;
+  }
+
+@media (){
+  .mainImage{
+    width: auto;
+    height: auto;
+    align-self: auto;
+  }
+}
+
+
+
+</style>
+
   </head>
   <body>
     <h1 class="logo">Space Rocks</h1>
@@ -17,11 +66,13 @@
       </div>
     </div>
 <!-- main display image stretched across the page -->
-    <div id="hero" class="mainImage"></div>
+  <div class="imageDiv">
+    <div id="hero" class="mainImage embed-responsive-item"></div>
+  </div>
 
 <!-- content section: title, date, explanation, copyright -->
 
-<div class="container border">
+<div class="container content">
 <div class="row">
   <div class="col-8">
     <h3 id="title">Title Here</h3>
@@ -31,7 +82,7 @@
     <div id="copyright">copyright 2019</div>
   </div>
   <div class="col">
-    <!-- 2 of 3 (wider) -->
+    <img id="astro" src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="">
   </div>
 </div>
 </div>
