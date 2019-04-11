@@ -101,14 +101,10 @@ document.querySelector('#nextBtn').addEventListener("click", function(){
 // adds a clickable random day button
 // document.querySelector('#randBtn').addEventListener("click", function(){
 //   var start = new Date(1995, 05, 20);
-//   console.log(start);
 //   var today = new Date(document.querySelector('#pickDate').max);
-//   console.log(today);
 //   var rand = new Date(start.getTime() + Math.random() * (today.getTime() - start.getTime()));
-//   console.log(rand);
 //   rand = rand.getFullYear() + "-" + rand.getMonth() + "-" + rand.getDay();
 //   document.querySelector("#pickDate").value = rand;
-//   console.log(rand);
 //   getAPOD(rand);
 // })
 
