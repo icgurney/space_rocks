@@ -10,6 +10,7 @@ function clear(){
   if (document.querySelector('#mainVid')) {
     document.querySelector('#mainVid').remove();
   }
+
 }
 
 // gets APOD and relevant info
@@ -35,8 +36,10 @@ function getAPOD(date){
     document.querySelector('#date').innerText = json.date;
     document.querySelector('#explanation').innerText = json.explanation;
     if(json.copyright){
-      document.querySelector('#copyright').innerText = json.copyright;
+      document.querySelector('#copyright').innerText = "\251 " + json.copyright;
     }
+   isEnd(json);
+   isBeginning();
   })
 }
 
@@ -46,10 +49,32 @@ function todayAPOD(){
   .then(response => response.json())
   .then(function(json){
     document.querySelector('#pickDate').max = json.date;
-    document.querySelector('#pickDate').min = 1995-06-20;
+    document.querySelector('#pickDate').min = "1995-06-20";
+    document.querySelector('#pickDate').value = json.date;
     getAPOD(json.date);
   })
 
+}
+
+// checks if today is the input date and disables the next day button
+function isEnd(json){
+  if(document.querySelector('#pickDate').value==json.date){
+    document.querySelector('#nextBtn').disabled = true;
+  }
+  else {
+    document.querySelector('#nextBtn').disabled = false;
+    console.log("here")
+  }
+}
+
+// checks if the date is 1995-06-20 and disables the previous day button
+function isBeginning(){
+  if(document.querySelector('#pickDate').value=="1995-06-20"){
+    document.querySelector('#prevBtn').disabled = true;
+  }
+  else {
+    document.querySelector('#prevBtn').disabled = false;
+  }
 }
 
 document.querySelector('#submit').addEventListener("click", function(){
@@ -57,16 +82,17 @@ document.querySelector('#submit').addEventListener("click", function(){
   getAPOD(document.querySelector("#pickDate").value);
 })
 
+// adds a clickable previous day button
 document.querySelector('#prevBtn').addEventListener("click", function(){
   clear();
-  // need to create if statement to check for minimum date
   document.querySelector("#pickDate").stepDown()
   getAPOD(document.querySelector("#pickDate").value);
 })
+// }
 
+// adds a clickable next day button
 document.querySelector('#nextBtn').addEventListener("click", function(){
   clear();
-  // need to create if statement to check for maximum date
   document.querySelector("#pickDate").stepUp()
   getAPOD(document.querySelector("#pickDate").value);
 })
