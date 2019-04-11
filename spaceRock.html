@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <title>Space Rocks</title>
+
 <style media="screen">
 body{
   background-image: linear-gradient(to right bottom, #061a38, #022553, #00316f, #003c8b, #0048a9);
@@ -25,21 +27,6 @@ body{
   padding: 20px;
 }
 
-.mainImage{
-  width: 700px;
-  align-self: 700px;
-}
-
-.mainImage img{
-  width: 700px;
-  height: auto;
-}
-
-  .info {
-    width: 700px;
-    padding: 20px;
-  }
-
   #astro {
     width: 200px;
     margin: 20px;
@@ -49,6 +36,7 @@ body{
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+
   }
 
   @keyframes floatUp {
@@ -56,32 +44,45 @@ body{
       to {transform: translateY(-50px)}
   }
 
-  /* #date {
-    font-family: 'Orbitron', sans-serif;
-  } */
+  .imageDiv{
+    width: 700px;
+  }
+
+  .imageDiv img{
+    width: 700px;
+  }
+
+  .info{
+    width: 700px;
+    margin-top: 20px;
+  }
 
   #copyright{
     color: lightgrey;
   }
 
-@media (max-width: 576px) {
+@media (max-width: 700px) {
+
+  .infoContainer{
+    padding: 15px;
+  }
+
+  .info{
+    width: 100%;
+  }
 
   .logo{
     font-size: 2.5em;
   }
 
-  .mainImg{
+  .imageDiv{
     width: 100%;
-    height: auto;
   }
 
-  .mainImage img{
+  .imageDiv img{
     width: 100%;
-    height: auto;
   }
 }
-
-
 
 
 </style>
@@ -92,16 +93,16 @@ body{
   <!-- previous and next buttons, date picker -->
     <div class="menu d-flex justify-content-center">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button id="prevBtn" type="button" class="btn btn-secondary">< Prev</button>
-        <button id="nextBtn" type="button" class="btn btn-secondary">Next ></button>
-        <input id="pickDate" type="date" name="" value="">
-        <button id="submit" type="button" class="btn btn-secondary">Search</button>
-        <button id="randBtn" type="button" class="btn btn-secondary">Big Bang!</button>
+        <button id="prevBtn" type="button" class="btn btn-secondary btn-sm"><</button>
+        <button id="nextBtn" type="button" class="btn btn-secondary btn-sm">></button>
+        <input id="pickDate" type="date" name="" value="" class="btn-sm">
+        <button id="submit" type="button" class="btn btn-secondary btn-sm">🔍</button>
+        <button id="randBtn" type="button" class="btn btn-secondary btn-sm">🔭</button>
       </div>
     </div>
   </div>
 
-<div class="d-flex justify-content-center">
+<div class="infoContainer d-flex justify-content-center">
   <div class="justify-content-center">
     <h3 id="title" class="mt-3">Title Here</h3>
   <div class="d-flex mb-2">
@@ -109,8 +110,8 @@ body{
     <div id="date">January 1, 2019</div>
   </div>
 
-    <div class="imageDiv d-flex">
-      <div id="hero" class="mainImage embed-responsive-item .img-fluid"></div>
+    <div class="imageDiv">
+      <div id="hero" class="mainImage"></div>
     </div>
     <div class="info">
       <p id="explanation">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -119,14 +120,11 @@ body{
     </div>
   </div>
 </div>
-</div>
 
+</div>
 <img id="astro" src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="">
 </div>
-
   <script src="./nasa.js">
-
   </script>
-
   </body>
 </html>
