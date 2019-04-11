@@ -43,6 +43,17 @@ body{
   #astro {
     width: 200px;
     margin: 20px;
+    animation-name: floatUp;
+    animation-duration: 5s;
+    animation-delay:.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @keyframes floatUp {
+    from {transform: translateY(0px)}
+      to {transform: translateY(-50px)}
   }
 
   /* #date {
