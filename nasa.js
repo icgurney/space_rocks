@@ -100,12 +100,26 @@ document.querySelector('#nextBtn').addEventListener("click", function(){
 
 // adds a clickable random day button
 document.querySelector('#randBtn').addEventListener("click", function(){
+  clear();
   var start = new Date(1995, 05, 20);
   var today = new Date(document.querySelector('#pickDate').max);
   var rand = new Date(start.getTime() + Math.random() * (today.getTime() - start.getTime()));
-  rand = rand.getFullYear() + "-" + rand.getMonth() + "-" + rand.getDay();
+  rand = rand.getFullYear() + "-" + (rand.getMonth() + 1) + "-" + rand.getDate();
+  rand = formatDate(rand);
   document.querySelector("#pickDate").value = rand;
   getAPOD(rand);
 })
+
+// formats the random date to be in YYYY-MM-DD format
+function formatDate(date){
+  date = date.split('-');
+  date = date.map(function(val){
+    if(parseInt(val)<10){
+      val = "0"+val;
+    }
+    return val;
+  })
+  return date.join('-')
+}
 
 todayAPOD();
