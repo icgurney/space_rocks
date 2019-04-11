@@ -48,9 +48,10 @@ function todayAPOD(){
   fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6')
   .then(response => response.json())
   .then(function(json){
-    document.querySelector('#pickDate').max = json.date;
-    document.querySelector('#pickDate').min = "1995-06-20";
-    document.querySelector('#pickDate').value = json.date;
+    var pickDate = document.querySelector('#pickDate');
+    pickDate.max = json.date;
+    pickDate.min = "1995-06-20";
+    pickDate.value = json.date;
     getAPOD(json.date);
   })
 
@@ -63,7 +64,6 @@ function isEnd(){
   }
   else {
     document.querySelector('#nextBtn').disabled = false;
-    console.log("here")
   }
 }
 
@@ -77,6 +77,7 @@ function isBeginning(){
   }
 }
 
+// adds a clickable submit button
 document.querySelector('#submit').addEventListener("click", function(){
   clear();
   getAPOD(document.querySelector("#pickDate").value);
@@ -88,7 +89,7 @@ document.querySelector('#prevBtn').addEventListener("click", function(){
   document.querySelector("#pickDate").stepDown()
   getAPOD(document.querySelector("#pickDate").value);
 })
-// }
+
 
 // adds a clickable next day button
 document.querySelector('#nextBtn').addEventListener("click", function(){
@@ -96,5 +97,19 @@ document.querySelector('#nextBtn').addEventListener("click", function(){
   document.querySelector("#pickDate").stepUp()
   getAPOD(document.querySelector("#pickDate").value);
 })
+
+// adds a clickable random day button
+// document.querySelector('#randBtn').addEventListener("click", function(){
+//   var start = new Date(1995, 05, 20);
+//   console.log(start);
+//   var today = new Date(document.querySelector('#pickDate').max);
+//   console.log(today);
+//   var rand = new Date(start.getTime() + Math.random() * (today.getTime() - start.getTime()));
+//   console.log(rand);
+//   rand = rand.getFullYear() + "-" + rand.getMonth() + "-" + rand.getDay();
+//   document.querySelector("#pickDate").value = rand;
+//   console.log(rand);
+//   getAPOD(rand);
+// })
 
 todayAPOD();
