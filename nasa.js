@@ -38,7 +38,7 @@ function getAPOD(date){
     if(json.copyright){
       document.querySelector('#copyright').innerText = "\251 " + json.copyright;
     }
-   isEnd(json);
+   isEnd();
    isBeginning();
   })
 }
@@ -57,8 +57,8 @@ function todayAPOD(){
 }
 
 // checks if today is the input date and disables the next day button
-function isEnd(json){
-  if(document.querySelector('#pickDate').value==json.date){
+function isEnd(){
+  if(document.querySelector('#pickDate').value==document.querySelector('#pickDate').max){
     document.querySelector('#nextBtn').disabled = true;
   }
   else {
