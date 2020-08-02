@@ -1,77 +1,74 @@
 body{
-    background-image: linear-gradient(to right bottom, #061a38, #022553, #00316f, #003c8b, #0048a9);
-    color: white;
-    }
+  background-image: linear-gradient(to right bottom, #061a38, #022553, #00316f, #003c8b, #0048a9);
+  color: white;
+}
   
-  .top {
-    background-image: url(https://ak7.picdn.net/shutterstock/videos/6009377/thumb/1.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 180px;
+.top {
+  background-image: url(https://ak7.picdn.net/shutterstock/videos/6009377/thumb/1.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+}
+  
+.logo {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4em;
+  padding: 20px;
+}
+  
+#astro {
+  width: 200px;
+  margin: 20px;
+  animation-name: floatUp;
+  animation-duration: 5s;
+  animation-delay:.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+  
+@keyframes floatUp {
+  from {transform: translateY(0px)}
+  to {transform: translateY(-50px)}
+}
+  
+.imageDiv{
+  width: 700px;
+}
+  
+.imageDiv img{
+  width: 700px;
+}
+  
+.info{
+  width: 700px;
+  margin-top: 20px;
+}
+  
+#copyright{
+  color: lightgrey;
+}
+  
+@media (max-width: 700px) {
+  
+  .infoContainer{
+    padding: 15px;
   }
   
-  .logo {
-    text-align: center;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4em;
-    padding: 20px;
+  .info{
+    width: 100%;
   }
   
-    #astro {
-      width: 200px;
-      margin: 20px;
-      animation-name: floatUp;
-      animation-duration: 5s;
-      animation-delay:.5s;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-  
-    }
-  
-    @keyframes floatUp {
-      from {transform: translateY(0px)}
-        to {transform: translateY(-50px)}
-    }
-  
-    .imageDiv{
-      width: 700px;
-    }
-  
-    .imageDiv img{
-      width: 700px;
-    }
-  
-    .info{
-      width: 700px;
-      margin-top: 20px;
-    }
-  
-    #copyright{
-      color: lightgrey;
-    }
-  
-  @media (max-width: 700px) {
-  
-    .infoContainer{
-      padding: 15px;
-    }
-  
-    .info{
-      width: 100%;
-    }
-  
-    .logo{
-      font-size: 2.5em;
-    }
-  
-    .imageDiv{
-      width: 100%;
-    }
-  
-    .imageDiv img{
-      width: 100%;
-    }
+  .logo{
+    font-size: 2.5em;
   }
   
+  .imageDiv{
+    width: 100%;
+  }
   
+  .imageDiv img{
+    width: 100%;
+  }
+}
