@@ -41,20 +41,17 @@ function getAPOD(date){
    isEnd();
    isBeginning();
   })
+  .catch(error => {
+    console.log('Error: ', error);
+  })
 }
 
 // sets min and max date values for today on first run
-function todayAPOD(){
-  fetch('https://api.nasa.gov/planetary/apod?api_key=dKcPX2PjyQHRtfwyggKEL2TzgQGLvt52mA17Jfy6')
-  .then(response => response.json())
-  .then(function(json){
-    var pickDate = document.querySelector('#pickDate');
-    pickDate.max = json.date;
-    pickDate.min = "1995-06-20";
-    pickDate.value = json.date;
-    getAPOD(json.date);
-  })
-
+function setDatePicker(date){
+  var pickDate = document.querySelector('#pickDate');
+  pickDate.max = date;
+  pickDate.min = "1995-06-20";
+  pickDate.value = date;
 }
 
 // checks if today is the input date and disables the next day button
@@ -122,4 +119,8 @@ function formatDate(date){
   return date.join('-')
 }
 
-todayAPOD();
+var today = new Date();
+today = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+today = formatDate(today);
+getAPOD(today);
+setDatePicker(today);
