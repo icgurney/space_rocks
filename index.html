@@ -11,23 +11,23 @@
 </head>
 
 <body>
-  <div class="top">
+  <header class="top">
     <h1 class="logo">Space Rocks</h1>
     <!-- previous and next buttons, date picker -->
     <div class="menu d-flex justify-content-center">
       <div class="btn-group" role="group" aria-label="Basic example">
         <button id="prevBtn" type="button" class="btn btn-secondary btn-sm"><</button>
         <button id="nextBtn" type="button" class="btn btn-secondary btn-sm">></button>
-        <input id="pickDate" type="date" name="" value="" class="btn-sm">
+        <input id="pickDate" type="date" name="date" value="" aria-label="date" class="btn-sm">
         <button id="submit" type="button" class="btn btn-secondary btn-sm">🔍</button>
         <button id="randBtn" type="button" class="btn btn-secondary btn-sm">🔭</button>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="infoContainer d-flex justify-content-center">
+  <main class="infoContainer d-flex justify-content-center">
     <div class="justify-content-center">
-      <h3 id="title" class="mt-3">Title Here</h3>
+      <h2 id="title" class="mt-3">Title Here</h2>
       <div class="d-flex mb-2">
         <div class="mr-2">Posted on:</div>
         <div id="date">January 1, 2019</div>
@@ -46,13 +46,13 @@
         <div id="copyright">copyright 2019</div>
       </div>
     </div>
-  </div>
+  </main>
 
-  </div>
-  <img id="astro"
-    src="./astro.png"
-    alt="">
-  </div>
+  <footer>
+    <img id="astro"
+      src="./astro.png"
+      alt="astronaut">
+  </footer>
 </body>
 
 <script src="./index.js"></script>

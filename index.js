@@ -24,6 +24,7 @@ function getAPOD(date){
       document.querySelector("#hero").appendChild(newImg);
       newImg.classList.add("mainImage")
       document.querySelector('#mainImg').src = json.url;
+      document.querySelector('#mainImg').alt = json.title;
     }
     else if (json.media_type=="video") {
       var newIframe = document.createElement("iframe");
