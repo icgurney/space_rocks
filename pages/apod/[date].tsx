@@ -22,10 +22,10 @@ export const getServerSideProps: GetServerSideProps = async (
   const res = await fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${process.env.api_key}&date=${context.params.date}`
   );
-  const data: APODProps = await res.json();
-  console.log(res, data);
+  const apod: APODProps = await res.json();
+  console.log(res, apod);
   return {
-    props: { data }, // will be passed to the page component as props
+    props: { apod }, // will be passed to the page component as props
   };
 };
 
