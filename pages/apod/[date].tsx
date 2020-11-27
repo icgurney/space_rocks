@@ -66,7 +66,7 @@ const AstronomyPictureOfTheDay = ({ apod }: Props) => {
           <img className="mx-auto" src={apod.url} alt={apod.title} />
         )}
       </Transition>
-      <p>Date: {date}</p>
+      <h2>Date: {date}</h2>
       <p>{apod.explanation}</p>
       <p>&copy; {apod.copyright}</p>
     </article>
