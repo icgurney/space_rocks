@@ -1,7 +1,6 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { Transition } from "@headlessui/react";
-import { apod } from "../api/apod";
 import { CSSProperties } from "react";
 
 type Props = {
@@ -20,7 +19,7 @@ type Props = {
 const AstronomyPictureOfTheDay = ({ apod }: Props) => {
   const router = useRouter();
   const { date, error } = router.query;
-  const divStyle: CSSProperties = {
+  const iframeWrapper: CSSProperties = {
     position: "relative",
     paddingBottom: "56.25%" /* 16:9 */,
     height: "0",
@@ -35,7 +34,7 @@ const AstronomyPictureOfTheDay = ({ apod }: Props) => {
   };
 
   return (
-    <article className="prose prose-red lg:prose-xl mx-auto">
+    <article className="prose prose-indigo lg:prose-xl mx-auto">
       <Transition
         appear={true}
         show={true}
@@ -46,9 +45,15 @@ const AstronomyPictureOfTheDay = ({ apod }: Props) => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <h1>{apod.title}</h1>
+        <h1>
+          {apod.title}
+          <a href={apod.hdurl} target="_blank">
+            ↗
+          </a>
+        </h1>
+
         {apod.media_type === "video" ? (
-          <div style={divStyle}>
+          <div style={iframeWrapper}>
             <iframe
               style={iframeStyle}
               width="560"
@@ -58,11 +63,7 @@ const AstronomyPictureOfTheDay = ({ apod }: Props) => {
             ></iframe>
           </div>
         ) : (
-          <img
-            className="mx-auto"
-            src={apod.hdurl ? apod.hdurl : apod.url}
-            alt={apod.title}
-          />
+          <img className="mx-auto" src={apod.url} alt={apod.title} />
         )}
       </Transition>
       <p>Date: {date}</p>
