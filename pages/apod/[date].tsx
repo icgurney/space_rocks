@@ -1,5 +1,6 @@
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
+import { Transition } from "@headlessui/react";
 import { apod } from "../api/apod";
 
 export default function APOD({ apod }: APODProps) {
@@ -9,12 +10,23 @@ export default function APOD({ apod }: APODProps) {
   return (
     // <div className="container mx-auto flex-col">
     <article className="prose prose-red lg:prose-xl mx-auto">
-      <h1>{apod.title}</h1>
-      <img
-        className="mx-auto"
-        src={apod.hdurl ? apod.hdurl : apod.url}
-        alt={apod.title}
-      />
+      <Transition
+        appear={true}
+        show={true}
+        enter="transition-opacity duration-1500"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <h1>{apod.title}</h1>
+        <img
+          className="mx-auto"
+          src={apod.hdurl ? apod.hdurl : apod.url}
+          alt={apod.title}
+        />
+      </Transition>
       <p>Date: {date}</p>
       <label className="inline-flex items-center">
         <input type="radio" name="radio" value="1" checked />
