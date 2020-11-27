@@ -8,15 +8,19 @@ export default function APOD({ apod }: APODProps) {
 
   return (
     // <div className="container mx-auto flex-col">
-    <article className="prose lg:prose-xl mx-auto">
+    <article className="prose prose-red lg:prose-xl mx-auto">
       <h1>{apod.title}</h1>
-      <p>Date: {date}</p>
-      <p>{apod.explanation}</p>
       <img
         className="mx-auto"
         src={apod.hdurl ? apod.hdurl : apod.url}
         alt={apod.title}
       />
+      <p>Date: {date}</p>
+      <label className="inline-flex items-center">
+        <input type="radio" name="radio" value="1" checked />
+        <span>Option 1</span>
+      </label>
+      <p>{apod.explanation}</p>
       <p>&copy; {apod.copyright}</p>
     </article>
     // </div>
