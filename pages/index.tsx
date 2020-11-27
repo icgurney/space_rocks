@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { format } from "date-fns";
 
 const HomePage = () => {
   const router = useRouter();
+  const today = format(new Date(), "yyyy-MM-dd");
   const [inputField, setInputField] = useState({
     date: "",
   });
@@ -22,6 +24,8 @@ const HomePage = () => {
           type="date"
           name="date"
           id="date"
+          min="1995-06-20"
+          max={today}
           onChange={handleChange}
           // onBlur={handleBlur}
         />
