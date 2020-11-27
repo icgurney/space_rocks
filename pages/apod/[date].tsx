@@ -4,7 +4,7 @@ import { Transition } from "@headlessui/react";
 import { apod } from "../api/apod";
 import { CSSProperties } from "react";
 
-export default function APOD({ apod }: APODProps) {
+export default function AstronomyPictureOfTheDay({ apod }: APODProps) {
   const router = useRouter();
   const { date, error } = router.query;
   const divStyle: CSSProperties = {
