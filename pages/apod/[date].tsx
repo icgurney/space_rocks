@@ -7,17 +7,19 @@ export default function APOD({ apod }: APODProps) {
   const { date, error } = router.query;
 
   return (
-    <div className="container mx-auto flex-col">
-      <h1 className="text-4xl">{apod.title}</h1>
-      <p className="text-lg">Date: {date}</p>
-      <p className="">{apod.explanation}</p>
+    // <div className="container mx-auto flex-col">
+    <article className="prose lg:prose-xl mx-auto">
+      <h1>{apod.title}</h1>
+      <p>Date: {date}</p>
+      <p>{apod.explanation}</p>
       <img
         className="mx-auto"
         src={apod.hdurl ? apod.hdurl : apod.url}
         alt={apod.title}
       />
       <p>&copy; {apod.copyright}</p>
-    </div>
+    </article>
+    // </div>
   );
 }
 

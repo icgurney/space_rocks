@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.3.1",
     "@types/node": "^14.14.10",
     "@types/react": "^16.9.56",
     "autoprefixer": "^10.0.2",
